@@ -35,7 +35,7 @@
     <rect x="205" y="200" width="40" height="70" fill="sienna" />
     <circle cx="237" cy="237" r="3" fill="black" />
 
-    <!-- g: two windows with the same style, positioned by translate -->
+   <!-- Step 4: two windows in one group, same style, positioned with translate -->
     <g id="windows" fill="lightblue" stroke="white" stroke-width="3">
       <rect width="35" height="35" transform="translate(165,175)" />
       <rect width="35" height="35" transform="translate(255,175)" />
@@ -54,8 +54,58 @@
 
     <!-- text: label -->
     <text x="150" y="295" font-size="18" fill="pink">Naazh's House</text>
+    <!-- Step 3: flower 1 (group: stem, leaf, petals, centre) -->
+<g id="flower1" transform="translate(110,330)">
+  <line x1="0" y1="0" x2="0" y2="40" stroke="forestgreen" stroke-width="3" />
+  <ellipse cx="9" cy="28" rx="9" ry="4" fill="limegreen" transform="rotate(-30 9 28)" />
+  <g fill="hotpink">
+    <circle cx="0" cy="-9" r="6" />
+    <circle cx="9" cy="0" r="6" />
+    <circle cx="0" cy="9" r="6" />
+    <circle cx="-9" cy="0" r="6" />
+  </g>
+  <circle cx="0" cy="0" r="5" fill="gold" />
+</g>
+
+<!-- Step 3: flower 2 (same shapes, different colour, moved and scaled) -->
+<g id="flower2" transform="translate(160,350) scale(0.8)">
+  <line x1="0" y1="0" x2="0" y2="40" stroke="forestgreen" stroke-width="3" />
+  <ellipse cx="-9" cy="28" rx="9" ry="4" fill="limegreen" transform="rotate(30 -9 28)" />
+  <g fill="violet">
+    <circle cx="0" cy="-9" r="6" />
+    <circle cx="9" cy="0" r="6" />
+    <circle cx="0" cy="9" r="6" />
+    <circle cx="-9" cy="0" r="6" />
+  </g>
+  <circle cx="0" cy="0" r="5" fill="white" />
+</g>
+
+<!-- Step 3: flower 3 -->
+<g id="flower3" transform="translate(60,355) scale(1.1)">
+  <line x1="0" y1="0" x2="0" y2="40" stroke="forestgreen" stroke-width="3" />
+  <g fill="orangered">
+    <circle cx="0" cy="-9" r="6" />
+    <circle cx="9" cy="0" r="6" />
+    <circle cx="0" cy="9" r="6" />
+    <circle cx="-9" cy="0" r="6" />
+  </g>
+  <circle cx="0" cy="0" r="5" fill="yellow" />
+</g>
+<!-- Step 3: small butterfly near the flowers (same group, scaled down) -->
+<g id="butterfly2" transform="translate(90,290) scale(0.6)">
+  <ellipse cx="-12" cy="-6" rx="12" ry="9" fill="orange" transform="rotate(-20 -12 -6)" />
+  <ellipse cx="12" cy="-6" rx="12" ry="9" fill="orange" transform="rotate(20 12 -6)" />
+  <ellipse cx="-9" cy="9" rx="8" ry="6" fill="gold" transform="rotate(20 -9 9)" />
+  <ellipse cx="9" cy="9" rx="8" ry="6" fill="gold" transform="rotate(-20 9 9)" />
+  <ellipse cx="0" cy="2" rx="2.5" ry="12" fill="black" />
+  <polyline points="-1,-10 -6,-20" fill="none" stroke="black" stroke-width="1.5" />
+  <polyline points="1,-10 6,-20" fill="none" stroke="black" stroke-width="1.5" />
+</g>
+    
   </svg>
 <p>Each shape is annotated to show how the coordinates in the code match the drawing. The origin (0,0) is at the top-left corner and the y-axis points down.</p>
 <img src="images/annotated-1.png" alt="Annotated screenshot of the SVG house showing coordinates of each shape" width="700">
+<p>Each SVG shape is an element in the DOM. The windows are two rect elements inside the g element with id "windows", and each shape can be inspected in the browser developer tools.</p>
+<img src="images/dom.png" alt="Screenshot of the SVG picture and its DOM tree in browser developer tools" width="1000">
 </body>
 </html>
